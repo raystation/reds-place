@@ -1,0 +1,92 @@
+@import "base";
+@import "skeleton";
+
+$bkgcolor: #a81005;
+
+.nospace { margin: 0; padding: 0; }
+.scale-with-grid { width: 100%; height: auto; }
+
+/* #Site Styles
+================================================== */
+
+* {
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+}
+
+body {
+	background-color: $bkgcolor;
+	font-size: 15pt;
+	line-height: 1.25em;
+	color: white;
+}
+
+.title {
+	font-family: "Futura LT Book",Futura,Helvetica,Arial;
+	font-size: 65pt;
+	font-weight: 400;
+	color: white;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	letter-spacing: -0.05em;
+	width: 50%;
+	@media only screen and (max-width: 767px) {
+		width: 70%;
+	}
+}
+
+.full {
+	@extend .nospace;
+	width: 100%;
+	// background-color: lighten($bkgcolor,10%);
+}
+
+.side-column {
+	background-color: white;
+	color: black;
+	padding: 1em;
+	h3 {
+		font-family: "Futura LT Book",Futura,Helvetica,Arial;
+		text-transform: uppercase;
+		font-size: 1rem;
+		font-weight: 600;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+	li {
+		font-size: 0.85rem;
+		line-height: 0.15rem;
+	}
+	p {
+		font-size: 0.85rem;
+		line-height: 1.25rem;
+	}
+}
+
+.footer {
+	padding-top: 1em;
+	padding-bottom: 2em;
+	margin-top: 1em;
+	background-color: darken($bkgcolor,10%);
+	li {
+		font-size: 0.75em;
+		list-style: none;
+		line-height: 0.75em;
+		font-weight: 900;
+		letter-spacing: 1px;
+	}
+}
+
+
+/* #Page Styles
+================================================== */
+
+/* #Media Queries
+================================================== */
+
+@media only screen and (min-width: 768px) {}
+	.mobile { display:none; }
+	.desktop { display:inherit; }
+@media only screen and (max-width: 767px) {
+	.mobile { display:inherit; }
+	.desktop { display:none; }
+}
