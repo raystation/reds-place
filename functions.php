@@ -4,8 +4,8 @@
 $hour_open=13;
 $hour_closed=1;
 //HAPPY HOUR MTWTF 4-6pm
-$happyhour_start=4+12;
-$happyhour_end=6+12;
+$happyhour_start=16;
+$happyhour_end=18;
 
 function get_date() {
 	date_default_timezone_set("America/Los_Angeles");
@@ -47,33 +47,33 @@ function getlist($list){
 	return $getlist;
 }
 
-function time_is_between($open,$closed) {
+function time_is_between($start,$end) {
 	$on;
 	$date=get_date();
 	$hour=$date["hour"];
+	$hour=5+12; //happy hour check
 	$minutes=$date["minutes"];
+	if ( $end==0 || $end==1 || $end==2 ) { $end=$end+24; }
 
-	if ( $hour>=$open || $hour<=$closed ) { $on=true; }
+	if ( $hour>=$start && $hour<=$end ) { $on=true; }
 	else { $on=false; }
-
+	// $on=true; //dev on
 	return $on;
-
 }
 
 function reds_open($message="Reds is open!"){
 	global $hour_open;
 	global $hour_close;
 	if ( time_is_between($hour_open,$hour_close) ) {
-		echo $message;
+		echo "<p>$message</p>";
 	}
-
 }
 
 function happyhour_on($message="Happy hour is on!"){
 	global $happyhour_start;
 	global $happyhour_end;
 	if ( time_is_between($happyhour_start,$happyhour_end) ) {
-		echo $message;
+		echo "<p>$message</p>";
 	}
 
 }

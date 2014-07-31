@@ -795,6 +795,13 @@ body {
   line-height: 1.25em;
   color: white; }
 
+a:link, a:visited {
+  color: orange;
+  text-decoration: none; }
+
+p a:link, p a:visited {
+  color: orange; }
+
 .title {
   font-family: "Futura LT Book",Futura,Helvetica,Arial;
   font-size: 65pt;
@@ -807,6 +814,10 @@ body {
   @media only screen and (max-width: 767px) {
     .title {
       width: 70%; } }
+
+.happy-hour {
+  margin-top: 1em;
+  margin-bottom: -1em; }
 
 .full {
   width: 100%; }
@@ -834,6 +845,9 @@ body {
   padding-bottom: 2em;
   margin-top: 1em;
   background-color: #760b04; }
+  .footer a {
+    text-decoration: none;
+    color: inherit; }
   .footer li {
     font-size: 0.75em;
     list-style: none;
@@ -841,6 +855,11 @@ body {
     font-weight: 900;
     letter-spacing: 1px;
     margin-bottom: 0.25em; }
+
+li.social img {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em; }
 
 .dev {
   position: fixed;

@@ -42,13 +42,11 @@
 	<!-- <img src="http://placehold.it/400x100&text=map" class="scale-with-grid" alt="map to Red's"> -->
 	<img class="scale-with-grid" src="http://maps.googleapis.com/maps/api/staticmap?center=672+Jackson+Street,94133&zoom=13&size=2048x100&scale=2&key=AIzaSyCAliTCzmXdY8zpA6cJgub-7eTIZtSyDog
 " alt="">
-	<?php 
-	//AIzaSyCAliTCzmXdY8zpA6cJgub-7eTIZtSyDog
-	?>
 </section>
 
 <header class="container">
 	<section class="sixteen columns">
+	<?php happyhour_on("<img class='happy-hour' src='img/happyhour.gif'>")?>
 	<img src="img/reds-place-horizontal.svg" class="title desktop" alt="">
 	<img src="img/reds-place-stacked.svg" class="title mobile" alt="">
 	</section>
@@ -56,9 +54,13 @@
 
 <section class="container mobile">
 	<?php 
-		echo "<p>".reds_open()."</p>";
-		echo "<p>".happyhour_on()."</p>";
+		reds_open();
+		happyhour_on();
 	?>
+ 
+	<p><a href="https://www.google.com/maps/place/Red's+Place/@37.796048,-122.406529,17z/data=!3m1!4b1!4m2!3m1!1s0x808580f4a33b0b0b:0xe6ef4af1b6db4808">Google Maps</a></p>
+	
+	<p><a href="http://maps.apple.com/?q=672+Jackson+St+94133">Apple Maps</a></p>
 </section>
 
 <section class="container desktop">
@@ -85,10 +87,12 @@
 <footer class="full footer">
 	<div class="container">
 		<div class="sixteen columns">
-			<li>www.facebook.com/redsplacesf</li>
-			<li>www.twitter.com/redsplacesf</li>
-			<li>672 Jackson Street, San Francisco, CA. 94133 | 415.956.4490</li>
-			<li>www.redsplacesf.com | Copyright © <?php $date=get_date();echo $date["year"];?></li>
+			<li class="social"><img src="img/icon/fb_icon.svg" alt=""><a href="facebook.com/redsplacesf">redsplacesf</a>
+			<li class="social"><img src="img/icon/tw_icon.svg" alt=""><a href="twitter.com/redsplacesf">redsplacesf</a>
+
+			<li>twitter.com/redsplacesf
+			<li>672 Jackson Street, San Francisco, CA. 94133 | 415.956.4490
+			<li>redsplacesf.com | Copyright © <?php $date=get_date();echo $date["year"];?>
 		</div>
 	</div>
 </footer>

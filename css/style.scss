@@ -2,6 +2,7 @@
 @import "skeleton";
 
 $bkgcolor: #a81005;
+$link-color: orange;
 
 .nospace { margin: 0; padding: 0; }
 .scale-with-grid { width: 100%; height: auto; }
@@ -21,6 +22,15 @@ body {
 	color: white;
 }
 
+a:link, a:visited {
+	color: $link-color;
+	text-decoration: none;
+}
+
+p {
+	a:link, a:visited { color: $link-color; }
+}
+
 .title {
 	font-family: "Futura LT Book",Futura,Helvetica,Arial;
 	font-size: 65pt;
@@ -33,6 +43,11 @@ body {
 	@media only screen and (max-width: 767px) {
 		width: 70%;
 	}
+}
+
+.happy-hour {
+	margin-top: 1em;
+	margin-bottom: -1em;
 }
 
 .full {
@@ -68,6 +83,10 @@ body {
 	padding-bottom: 2em;
 	margin-top: 1em;
 	background-color: darken($bkgcolor,10%);
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 	li {
 		font-size: 0.75em;
 		list-style: none;
@@ -75,6 +94,15 @@ body {
 		font-weight: 900;
 		letter-spacing: 1px;
 		margin-bottom: 0.25em;
+	}
+}
+
+$iconsize:1em;
+li.social {
+	img {
+		width: $iconsize;
+		height: $iconsize;
+		margin-right: 0.5em;
 	}
 }
 
