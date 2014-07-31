@@ -54,31 +54,29 @@
 	</section>
 </header>
 
-<section class="container">
+<section class="container mobile">
+	<?php 
+		echo "<p>".reds_open()."</p>";
+		echo "<p>".happyhour_on()."</p>";
+	?>
+</section>
+
+<section class="container desktop">
 	
-	<div class="ten columns">
+	<div class="ten columns add-bottom">
 		IT OFFICIAL! RED'S PLACE is NOW SERVING Draft Beer. The First in Chinatown to do so.
 
 		MENU
-		<?php 
-			// $result = fetchData("https://api.instagram.com/v1/users/57d6320085fe4aca9f0e4091c8369040/media/recent/?access_token=7aa5b6febeed4117a1c1926b12de388e");
-			// $result = json_decode($result);
-			// var_dump($result);
-			// foreach ($result->data as $post) {
-			  // echo $post;
-			// }
-			// https://api.instagram.com/oauth/authorize/?client_id=57d6320085fe4aca9f0e4091c8369040&redirect_uri=REDIRECT-URI&response_type=code
-		?>
 
 	</div>
 
 	<div class="six columns side-column">
 		
 		<h3>Draft Beer</h3>
-		<?php html_comma_list( list_draftbeer() );?>	
+		<?php html_comma_list( getlist(draftbeer) );?>	
 		
 		<h3>Bottled Beer</h3>
-		<?php html_comma_list( list_bottledbeer() );?>
+		<?php html_comma_list( getlist(bottledbeer) );?>
 	
 	</div>
 
@@ -94,7 +92,6 @@
 		</div>
 	</div>
 </footer>
-
 
 <!-- End Document
 ================================================== -->

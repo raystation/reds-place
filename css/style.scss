@@ -5,6 +5,7 @@ $bkgcolor: #a81005;
 
 .nospace { margin: 0; padding: 0; }
 .scale-with-grid { width: 100%; height: auto; }
+.add-bottom { margin-bottom: 1em; }
 
 /* #Site Styles
 ================================================== */
@@ -70,10 +71,21 @@ body {
 	li {
 		font-size: 0.75em;
 		list-style: none;
-		line-height: 0.75em;
+		line-height: 1.25em;
 		font-weight: 900;
 		letter-spacing: 1px;
+		margin-bottom: 0.25em;
 	}
+}
+
+.dev {
+	position: fixed;
+	padding: 0.25em;
+	color: black;
+	background-color: rgba(yellow,0.5);
+	bottom: 0;
+	width: 100%;
+	left: 0;
 }
 
 

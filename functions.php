@@ -1,68 +1,20 @@
 <?php 
 
+//Hours EVERYDAY 1pm-1am
+$hour_open=13;
+$hour_closed=1;
+//HAPPY HOUR MTWTF 4-6pm
+$happyhour_start=4+12;
+$happyhour_end=6+12;
+
 function get_date() {
 	date_default_timezone_set("America/Los_Angeles");
 	$date["year"]=date('Y');
 	$date["day"]=date('D');
+	// $date["hour"]=date('g'); //12hour
+	$date["hour"]=date('G'); //24hour
+	$date["minutes"]=date('i');
 	return $date;
-}
-
-function list_bottledbeer() {
-	$list=array(
-		"Amstel Light",
-		"Anchor Steam",
-		"Anchor Steam Liberty",
-		"Anchor Steam Seasonal",
-		"Asahi",
-		"Becks",
-		"Becks n.a",
-		"Blue Moon",
-		"Blue Moon *seasonal*",
-		"Budweiser",
-		"Bud Light",
-		"Bud Light Lime",
-		"Bud Platinum",
-		"Chimay",
-		"Coors",
-		"Coors Light",
-		"Corona",
-		"Dogfish 90 min",
-		"Duvel",
-		"Fat Tire",
-		"Guinness",
-		"Heineken",
-		"Heineken Light",
-		"Kona Longboard",
-		"Lucky Buddah",
-		"Lagunitas Censored",
-		"Lagunitas IPA",
-		"Miller",
-		"Miller Genuine Draft",
-		"Miller Lite",
-		"PBR",
-		"Samuel Adam",
-		"Samuel Smith",
-		"Sapporo",
-		"Shocktop",
-		"Sierra Nevada",
-		"Smirnoff Mango",
-		"Speakeasy Big Daddy",
-		"Speakeasy Prohibition",
-		"Speakeasy Tallaluah",
-		"Tsing Tao",
-	);
-	return $list;
-}
-
-function list_draftbeer() {
-	$list=array(
-		"Big Daddy IPA",
-		"Lagunitas IPA",
-		"Big Daddy IPA",
-		"Big Daddy IPA",
-		"Big Daddy IPA",
-	);
-	return $list;
 }
 
 function html_list($array) {
@@ -88,12 +40,59 @@ function html_comma_list($array) {
 	echo "</p>";
 }
 
-function fetchData($url){
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-	$result = curl_exec($ch);
-	curl_close($ch); 
-	return $result;
+function getlist($list){
+	include_once "lists.php";
+	$getlist="list_".$list;
+	$getlist=$getlist();
+	return $getlist;
 }
+
+function time_is_between($open,$closed) {
+	$on;
+	$date=get_date();
+	$hour=$date["hour"];
+	$minutes=$date["minutes"];
+
+	if ( $hour>=$open || $hour<=$closed ) { $on=true; }
+	else { $on=false; }
+
+	return $on;
+
+}
+
+function reds_open($message="Reds is open!"){
+	global $hour_open;
+	global $hour_close;
+	if ( time_is_between($hour_open,$hour_close) ) {
+		echo $message;
+	}
+
+}
+
+function happyhour_on($message="Happy hour is on!"){
+	global $happyhour_start;
+	global $happyhour_end;
+	if ( time_is_between($happyhour_start,$happyhour_end) ) {
+		echo $message;
+	}
+
+}
+
+function dev_var($var){
+	if ( is_null($dev_var) ){ $dev_var=array(); }
+	$dev_var[]=$var;
+	return $dev_var;
+}
+
+function print_dev(){
+	echo "<div class='dev'>";
+	foreach ($dev_var as $key => $var) {
+		echo $var;
+	}
+	echo '</div>';
+}
+
+?>
+
+
+
